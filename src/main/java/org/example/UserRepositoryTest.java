@@ -63,4 +63,12 @@ public class UserRepositoryTest {
         assertTrue(result.isPresent());
         assertEquals(2, result.get().size());
     }
+    @Test
+    public void testFindAllUsersEmpty() {
+        UserRepository repository = new UserRepository();
+
+        Optional<List<User>> result = repository.findAllUsers();
+
+        assertFalse(result.isPresent());
+    }
 }
