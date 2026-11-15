@@ -1,5 +1,5 @@
-package org.example;
-
+import org.example.User;
+import org.example.UserRepository;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Optional;
