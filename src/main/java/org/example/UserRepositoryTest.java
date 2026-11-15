@@ -29,4 +29,17 @@ public class UserRepositoryTest {
 
         assertFalse(result.isPresent());
     }
+    @Test
+    public void testFindUserByEmail() {
+        UserRepository repository = new UserRepository();
+
+        User user = new User(1, "Ivan", "ivan@gmail.com");
+        repository.addUser(user);
+
+        Optional<User> result =
+                repository.findUserByEmail("ivan@gmail.com");
+
+        assertTrue(result.isPresent());
+        assertEquals(1, result.get().getId());
+    }
 }
