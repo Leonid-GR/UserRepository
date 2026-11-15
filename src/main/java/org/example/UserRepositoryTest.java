@@ -51,4 +51,16 @@ public class UserRepositoryTest {
 
         assertFalse(result.isPresent());
     }
+    @Test
+    public void testFindAllUsers() {
+        UserRepository repository = new UserRepository();
+
+        repository.addUser(new User(1, "Leonid", "leonid@gmail.com"));
+        repository.addUser(new User(2, "Ivan", "ivan@gmail.com"));
+
+        Optional<List<User>> result = repository.findAllUsers();
+
+        assertTrue(result.isPresent());
+        assertEquals(2, result.get().size());
+    }
 }
