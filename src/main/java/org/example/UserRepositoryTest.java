@@ -21,4 +21,12 @@ public class UserRepositoryTest {
         assertTrue(result.isPresent());
         assertEquals("Leonid", result.get().getName());
     }
+    @Test
+    public void testFindUserByIdNotFound() {
+        UserRepository repository = new UserRepository();
+
+        Optional<User> result = repository.findUserById(10);
+
+        assertFalse(result.isPresent());
+    }
 }
