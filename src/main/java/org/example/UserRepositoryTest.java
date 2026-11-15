@@ -42,4 +42,13 @@ public class UserRepositoryTest {
         assertTrue(result.isPresent());
         assertEquals(1, result.get().getId());
     }
+    @Test
+    public void testFindUserByEmailNotFound() {
+        UserRepository repository = new UserRepository();
+
+        Optional<User> result =
+                repository.findUserByEmail("unknown@gmail.com");
+
+        assertFalse(result.isPresent());
+    }
 }
